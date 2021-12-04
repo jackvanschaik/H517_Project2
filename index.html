@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USA</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav><a href="">Home</a>
+            <a href="">Documentation</a>
+            <a href="">Notes</a>
+        </nav>
+    </header>
+    <h2>Visualization Project 2</h2><br>
+    <div class="row">
+
+        <!-- left column (two column layout borrow from https://www.w3schools.com/howto/howto_css_two_columns.asp) -->
+        <div class="column">
+
+            <!-- Main Map -->
+            <div class="svgGroup">
+                <div id="maps" class="maps">
+                    <!-- <svg width="960" height="600"></svg>  -->
+                </div>
+                <div id="graphs" class = "graphs">
+                    <!-- <svg width="450" height="600"></svg> -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- right column -->
+        <div class="column">
+
+            <!-- UI -->
+            <div>
+                <!-- toggle delays only: drop-down format via https://www.w3schools.com/tags/tag_select.asp -->
+                <div>
+                    <select name="depblock" id="depblock">
+                        <option value="All">All</option>
+                        <option value="EARLY_MORNING">Early morning</option>
+                        <option value="MORNING">Morning</option>
+                        <option value="MIDDAY">Midday</option>
+                        <option value="AFTERNOON">Afternoon</option>
+                        <option value="EVENING">Evening</option>
+                        <option value="LATE_NIGHT">Late Night</option>
+                    </select>
+                    <label for="cars">Departure Block</label>
+                </div>
+
+                <!-- toggle delays only: checkbox format via https://www.w3schools.com/tags/att_input_type_checkbox.asp -->
+                <div>
+                    <input type="checkbox" id="delayonly" name="delayonly" value="1">
+                    <label for="delayonly"> Show Delays Only </label>
+                </div>
+
+                <div>
+                    <select name="dow" id="dow">
+                        <option value="0">All</option>
+                        <option value="1">Sunday</option>
+                        <option value="2">Monday</option>
+                        <option value="3">Tuesday</option>
+                        <option value="4">Wednesday</option>
+                        <option value="5">Thursday</option>
+                        <option value="6">Friday</option>
+                        <option value="7">Saturday</option>
+                    </select>
+                    <label for="dow">Day of week</label>
+                </div>
+
+                <!-- search form -->
+                <div>
+                    <!-- input part -->
+                    <div>
+                        <input type="text" id="textsearch" name="textsearch">
+                        <label for="textsearch">Departing Airline Search</label>
+                    </div>
+                    <!-- programmatically generated button section -->
+                    <div id="airports">
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Ali Plots -->
+            <div id = "my_chart"></div>
+            <div id = "ages_chart"></div>
+
+            <!-- Jack plots -->
+            <div>
+                <h3>Delay Proportion by Airline </h3>
+                <svg id="cancel_prop" width="600" height="300">
+                    <g id = "cancel_props"></g>
+                    <g id = "cancel_x_axis" class = "axis_label"></g>
+                    <g id = "cancel_y_axis" class = "axis_label"></g>
+                </svg>
+            </div>
+            <!--
+            <div>
+                <h3> Average Departure Delay by Airline </h3>
+                <svg id="delay" width="600" height="300">
+                    <g id = "delay_"></g>
+                    <g id = "delay_x_axis" class = "axis_label"></g>
+                    <g id = "delay_y_axis" class = "axis_label"></g>
+                </svg>
+            </div>
+            -->
+
+        </div>
+    </div>
+
+
+
+
+
+    <script src="project.js"></script>
+</body>
+</html>

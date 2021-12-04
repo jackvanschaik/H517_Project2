@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  background-color: rgb(255, 248, 248);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 16px;
+}
+h2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  color: rgb(52, 94, 25);
+}
+header {
+  height: 35px;
+  background-color: brown;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+  color: rgb(136, 255, 62);
+}
+
+.states {
+  /* fill: none; */
+  fill: rgb(9, 23, 63);
+  fill-opacity: 1;
+}
+.states :hover {
+  fill: rgb(52, 94, 25);
+}
+
+.state-borders {
+  fill: none;
+  stroke: rgb(136, 255, 62);
+  stroke-width: 0.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+.maps {
+  height: 600px;
+  width: 960px;
+}
+.graphs {
+  height: 600px;
+  width: 450px;
+}
+
+.svgGroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.axis line {
+  stroke: rgb(9, 23, 63);
+  shape-rendering: crispEdges;
+}
+/* .axis text {
+  font-weight: bold;
+  font-size: 14px;
+  fill: brown;
+} */
+
+#tooltip {
+  width: 50px;
+  height: auto;
+  padding: 10px;
+  pointer-events: none;
+}
+
+.ttp {
+  font-size: 15px;
+  font-family: Optima, Futura, sans-serif;
+  /* text-decoration: underline; */
+  background-color: rgb(226, 226, 240);
+  position: absolute;
+  width: 200px;
+  height: 78px;
+  pointer-events: none;
+  color: rgb(9, 23, 63);
+}
+.labels {
+  font-size: 18px;
+  /* text-decoration: underline; */
+  font-weight: bold;
+  background-color: white;
+}
+
+/* Two column layout borrowed from https://www.w3schools.com/howto/howto_css_two_columns.asp */
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
