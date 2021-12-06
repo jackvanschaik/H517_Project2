@@ -210,7 +210,7 @@ function draw_ali_plots(data) {
           //  console.log(d)
             return d.value; });
       ageschart.append("g")
-        .attr("transform", "translate(" + (width / 2) + "," + 20 + ")")
+        .attr("transform", "translate(" + (width / 2) + "," + 70 + ")")
         .append("text")
         .text("Carriers with Planes over ages 25")
         .attr("class", "title")
