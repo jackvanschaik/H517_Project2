@@ -41,6 +41,13 @@ a {
   color: rgb(136, 255, 62);
 }
 
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
 .states {
   /* fill: none; */
   fill: rgb(9, 23, 63);
@@ -61,6 +68,7 @@ a {
 .maps {
   height: 600px;
   width: 960px;
+  position: fixed;
 }
 .graphs {
   height: 600px;
