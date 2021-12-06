@@ -144,7 +144,7 @@ function draw_ali_plots(data) {
       airport [key].planesOver25 = total
     }
 
-    var radius = 300
+    var radius = 200
     var g = ageschart.append("g")
     .style("transform", "translate(" + "50%" + "," + "50%" + ")")
       //.attr("transform", "translate(" + width/1.5 + "," + height/1.25 + ")")
