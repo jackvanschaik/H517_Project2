@@ -475,7 +475,7 @@ function load_data(step = 1) {
 
 /*** Kick-off the script ***/
 // Global variables
-var w = 960;
+var w = 750;
 var h = 600;
 var newdataset = [];
 var vars3 = [];
@@ -483,7 +483,7 @@ var airports = [];
 var projection = d3
   .geoAlbersUsa()
   .translate([w / 2, h / 2])
-  .scale([1000]);
+  .scale([900]);
 var path = d3.geoPath().projection(projection);
 
 // main function
