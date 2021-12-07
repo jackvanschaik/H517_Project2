@@ -48,6 +48,127 @@ function draw_proportions(data) {
         .attr("height", function(d) {return y_scale(0) - y_scale(d)})
 }
 
+
+function draw_shruti_plot(data) {
+  var test = d3.max(data, function (d) {
+    return d.DEP_DELAY_NEW;
+  });
+  console.log(test + "Hi");
+
+  var svg = d3
+    .select("body")
+    .select("#graphs")
+    .append("svg")
+    .attr("width", 450)
+    .attr("height", 500);
+
+  //console.log(data);
+  var dataset = data.map(function (d) {
+    //console.log(d.DAY_OF_WEEK, "xxxxxxxxx");
+    return { DAY_OF_WEEK: d.DAY_OF_WEEK, DEP_DELAY_NEW: d.DEP_DELAY_NEW };
+  });
+  //console.log(dataset);
+
+  var padding = 20;
+  var xScale = d3
+    .scaleLinear()
+    .domain([0, 8])
+    .range([padding, 300 - padding]);
+
+  var yScale = d3
+    .scaleLinear()
+    .domain([
+      0,
+      d3.max(dataset, function (d) {
+        return d.DEP_DELAY_NEW;
+      }),
+    ])
+    .range([400 - padding * 18, padding]);
+
+  var scaledColors = d3.scale.category20b();
+
+  svg
+    .selectAll("circle")
+    .data(dataset)
+    .enter()
+    .append("circle")
+    .attr("cx", function (d) {
+      return xScale(d.DAY_OF_WEEK);
+    })
+    .attr("cy", function (d) {
+      return yScale(d.DEP_DELAY_NEW);
+    })
+    .attr("r", 2)
+    .attr("fill", function (d, i) {
+      return scaledColors(i);
+    })
+    .attr("transform", "translate(" + padding + "," + padding * 13 + ")")
+    .on("mouseover", function (d, i) {
+      d3.select(this).transition().duration(300).attr("r", 3);
+      // .attr("fill", "red")
+      // .moveToFront();
+      //Create the tooltip label
+      svg
+        .append("text")
+        .attr("id", "tooltip")
+        .attr("class", "ttp")
+        .attr("x", xScale(d.DAY_OF_WEEK))
+        .attr("y", yScale(d.DEP_DELAY_NEW))
+        .attr("transform", "translate(" + padding + "," + padding * 13 + ")")
+        .attr("text-anchor", "middle")
+        //.style("position", "absolute")
+        .style("font-size", "15px")
+        .style("background", " rgb(226, 226, 240)")
+        .style("color", "rgb(9, 23, 63)")
+        .html("Delay in Minutes: " + d.DEP_DELAY_NEW);
+    })
+    .on("mouseout", function () {
+      d3.select("#tooltip").remove();
+      d3.select(this).attr("r", 2);
+    });
+
+  var xAxis = d3.axisBottom().scale(xScale).tickValues([1, 2, 3, 4, 5, 6, 7]);
+  var yScale1 = d3
+    .scaleLinear()
+    .domain([
+      0,
+      d3.max(dataset, function (d) {
+        return d.DEP_DELAY_NEW;
+      }),
+    ])
+    .range([300 - padding * 2, padding * 2]);
+  var yAxis = d3.axisLeft().scale(yScale1);
+  svg
+    .append("g")
+    .attr("class", "axis")
+    .attr("transform", "translate(" + padding + "," + padding * 15 + ")")
+    .call(xAxis);
+
+  svg
+    .append("g")
+    .attr("class", "axis")
+    .attr("transform", "translate(" + padding * 2 + "," + padding * 2 + ")")
+    .call(yAxis);
+
+  svg
+    .append("text")
+    .attr("transform", "translate(" + padding * 7 + "," + padding * 17 + ")")
+    .style("text-anchor", "middle")
+    .text("Day of the Week");
+
+  svg
+    .append("text")
+    .attr(
+      "transform",
+      "translate(" + (padding / 2 + 1) + "," + padding * 10 + "),rotate(-90)"
+    )
+    //.attr("transform", "rotate(-90)")
+    .style("text-anchor", "middle")
+    .text("Delay in minutes");
+
+  // end of code bracket
+}
+
 function draw_ali_plots(data) {
     // Ali's code
     var margin = {top: 70, right: 30, bottom: 110, left: 60},
@@ -209,11 +330,12 @@ function draw_ali_plots(data) {
           .text(function(d) {
           //  console.log(d)
             return d.value; });
+      /*
       ageschart.append("g")
         .attr("transform", "translate(" + (width / 2) + "," + 70 + ")")
         .append("text")
         .text("Carriers with Planes over ages 25")
-        .attr("class", "title")
+        .attr("class", "title") */
     }
 
 /*** Main Map ***/
@@ -291,13 +413,6 @@ function draw_map(data) {
                 search_airports(airport = d[2]);
                 visualize();
             })
-
-          svg
-            .append("text")
-            .attr("class", "labels")
-            .attr("transform", "translate(480,580)")
-            .style("text-anchor", "middle")
-            .text("Airports in United States of America");
 }
 
 /*** UI Reactivity ***/
@@ -422,6 +537,7 @@ function visualize() {
     //draw_delays(data_f);
     //
     draw_ali_plots(data_f);
+    draw_shruti_plot(window["data_old"]);
 }
 
 /*** Load Data ***/
@@ -467,6 +583,12 @@ function load_data(step = 1) {
         });
     }
     else if (step == 3) {
+        d3.csv("data/departures_small_old.csv", function(data) {
+            window["data_old"] = data;
+            load_data(step = 4);
+        })
+    }
+    else if (step == 4) {
         visualize();
         make_ui();
     }

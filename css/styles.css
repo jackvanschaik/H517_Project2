@@ -70,11 +70,14 @@ a {
   width: 960px;
   position: fixed;
 }
+/*
 .graphs {
   height: 600px;
   width: 450px;
+}*/
+.ui {
+  position: fixed;
 }
-
 .svgGroup {
   display: flex;
   justify-content: space-between;
