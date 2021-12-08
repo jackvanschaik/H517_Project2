@@ -177,19 +177,19 @@ function draw_shruti_plot(data) {
 
   svg
     .append("text")
-    .attr("transform", "translate(" + padding * 7 + "," + padding * 17 + ")")
+    .attr("transform", "translate(" + padding * 8.3 + "," + padding * 17 + ")")
     .style("text-anchor", "middle")
-    .text("Day of the Week");
+    .text("Day of the Week :: Delay in Minutes");
 
-  svg
-    .append("text")
-    .attr(
-      "transform",
-      "translate(" + (padding / 2 + 1) + "," + padding * 10 + "),rotate(-90)"
-    )
-    //.attr("transform", "rotate(-90)")
-    .style("text-anchor", "middle")
-    .text("Delay in minutes");
+//   svg
+//     .append("text")
+//     .attr(
+//       "transform",
+//       "translate(" + (padding / 2 + 1) + "," + padding * 10 + "),rotate(-90)"
+//     )
+//     //.attr("transform", "rotate(-90)")
+//     .style("text-anchor", "middle")
+//     .text("Delay in minutes");
 
   // end of code bracket
 }
