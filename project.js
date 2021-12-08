@@ -102,9 +102,10 @@ function draw_shruti_plot(data) {
       return yScale(d.DEP_DELAY_NEW);
     })
     .attr("r", 2)
-    .attr("fill", function (d, i) {
-      return scaledColors(i);
-    })
+    //.attr("fill", function (d, i) {
+    //  return scaledColors(i);
+    //})
+    .attr("fill", "#33a02c")
     .attr("transform", "translate(" + padding + "," + padding * 13 + ")")
     .on("mouseover", function (d, i) {
       d3.select(this).transition().duration(300).attr("r", 3);
@@ -141,6 +142,9 @@ function draw_shruti_plot(data) {
     });
 
   var tickLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    var yticks = [
+    0, 107.4, 214.8, 322.2, 429.6, 537, 644.4, 751.8, 859.2, 966.6, 1074,
+  ];
   var xAxis = d3.axisBottom().scale(xScale).tickValues([1, 2, 3, 4, 5, 6, 7]).tickFormat(function (d, i) {
       return tickLabels[i];
     });
@@ -153,7 +157,10 @@ function draw_shruti_plot(data) {
       }),
     ])
     .range([300 - padding * 2, padding * 2]);
-  var yAxis = d3.axisLeft().scale(yScale1);
+  var yAxis = d3.axisLeft().scale(yScale1).tickValues([0, 10, 20, 30, 40, 50, 60, 70, 80, 90])
+    .tickFormat(function (d, i) {
+      return yticks[i];
+    });
   svg
     .append("g")
     .attr("class", "axis")
