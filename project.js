@@ -106,19 +106,21 @@ function draw_shruti_plot(data) {
     //  return scaledColors(i);
     //})
     .attr("fill", "#33a02c")
+    .style("stroke", "#b2df8a")
+    .style("stroke-width", "0.4")
     .attr("transform", "translate(" + padding + "," + padding * 13 + ")")
     .on("mouseover", function (d, i) {
-      d3.select(this).transition().duration(300).attr("r", 3);
+      d3.select(this).transition().duration(300).attr("r", 5);
 
       svg
         .append("rect")
         .attr("id", "hah")
         .style("fill", "white")
-        .attr("width", 162)
-        .attr("height", 20)
+        .attr("width", 155)
+        .attr("height", 16)
         .style("pointer-events", "none")
-        .attr("x", xScale(d.DAY_OF_WEEK) - 5)
-        .attr("y", yScale(d.DEP_DELAY_NEW) - 15)
+        .attr("x", xScale(d.DAY_OF_WEEK))
+        .attr("y", yScale(d.DEP_DELAY_NEW)+7)
         .attr("transform", "translate(" + padding + "," + padding * 13 + ")");
 
       svg
@@ -127,7 +129,7 @@ function draw_shruti_plot(data) {
         .attr("class", "ttp")
         .attr("x", xScale(d.DAY_OF_WEEK))
         .attr("y", yScale(d.DEP_DELAY_NEW))
-        .attr("transform", "translate(" + padding + "," + padding * 13 + ")")
+        .attr("transform", "translate(" + padding + "," + padding * 14 + ")")
         //.attr("text-anchor", "middle")
         .style("position", "absolute")
         .style("font-size", "15px")
