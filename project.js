@@ -108,9 +108,18 @@ function draw_shruti_plot(data) {
     .attr("transform", "translate(" + padding + "," + padding * 13 + ")")
     .on("mouseover", function (d, i) {
       d3.select(this).transition().duration(300).attr("r", 3);
-      // .attr("fill", "red")
-      // .moveToFront();
-      //Create the tooltip label
+
+      svg
+        .append("rect")
+        .attr("id", "hah")
+        .style("fill", "white")
+        .attr("width", 162)
+        .attr("height", 20)
+        .style("pointer-events", "none")
+        .attr("x", xScale(d.DAY_OF_WEEK) - 5)
+        .attr("y", yScale(d.DEP_DELAY_NEW) - 15)
+        .attr("transform", "translate(" + padding + "," + padding * 13 + ")");
+
       svg
         .append("text")
         .attr("id", "tooltip")
@@ -118,8 +127,8 @@ function draw_shruti_plot(data) {
         .attr("x", xScale(d.DAY_OF_WEEK))
         .attr("y", yScale(d.DEP_DELAY_NEW))
         .attr("transform", "translate(" + padding + "," + padding * 13 + ")")
-        .attr("text-anchor", "middle")
-        //.style("position", "absolute")
+        //.attr("text-anchor", "middle")
+        .style("position", "absolute")
         .style("font-size", "15px")
         .style("background", " rgb(226, 226, 240)")
         .style("color", "rgb(9, 23, 63)")
@@ -127,10 +136,14 @@ function draw_shruti_plot(data) {
     })
     .on("mouseout", function () {
       d3.select("#tooltip").remove();
+      d3.select("#hah").remove();
       d3.select(this).attr("r", 2);
     });
 
-  var xAxis = d3.axisBottom().scale(xScale).tickValues([1, 2, 3, 4, 5, 6, 7]);
+  var tickLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  var xAxis = d3.axisBottom().scale(xScale).tickValues([1, 2, 3, 4, 5, 6, 7]).tickFormat(function (d, i) {
+      return tickLabels[i];
+    });
   var yScale1 = d3
     .scaleLinear()
     .domain([
