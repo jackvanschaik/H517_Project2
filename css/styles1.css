@@ -155,3 +155,18 @@ a {
   pointer-events: none;
   color: rgb(9, 23, 63);
 }
+
+
+footer {
+  /* margin-top: 50px; */
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* padding: 0 105px; */
+}
+
+.footnotes {
+  font-size: 14px;
+  font-family: RobotoLight;
+}
