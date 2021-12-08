@@ -258,7 +258,7 @@ function draw_ali_plots(data) {
         .attr("y", function(d) { return y(airport[d]["delay_values"]); })
         .attr("width", x.bandwidth())
         .attr("height", function(d) { return height - y(airport[d]["delay_values"]); })
-        .attr("fill", "#69b3a2")
+        .attr("fill", "black")
         .attr("class", function(d,i) { return d.replace(/\s+/g, '').replace('.', ''); })
         .on("mouseover", function(d,i){
 
@@ -267,7 +267,7 @@ function draw_ali_plots(data) {
           .attr("fill", "yellow")
         }).on("mouseout", function(d,i) {
           d3.select("rect." + d.replace(/\s+/g, '').replace('.', ''))
-         .attr("fill", "#69b3a2")
+         .attr("fill", "black")
          d3.select("path." + d.replace(/\s+/g, '').replace('.', ''))
          .attr("fill", color(airport[d].planesOver25))
         });
@@ -331,7 +331,7 @@ function draw_ali_plots(data) {
          .attr("fill", "yellow")
        }).on("mouseout", function(d,i) {
         d3.select("rect." + d.data.name.replace(/\s+/g, '').replace('.', ''))
-         .attr("fill", "#69b3a2")
+         .attr("fill", "black")
          d3.select("path." + d.data.name.replace(/\s+/g, '').replace('.', ''))
          .attr("fill", color(d.value))
         });
