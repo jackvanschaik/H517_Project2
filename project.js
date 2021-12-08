@@ -407,26 +407,39 @@ function draw_map(data) {
             .style("opacity", 0.3)
 
             .on("mouseover", function (d, i) {
-              d3.select(this)
-                .transition()
-                .duration(300)
-                .attr("r", 10)
-                .attr("fill", "yellow");
+      d3.select(this)
+        .transition()
+        .duration(300)
+        .attr("r", 10)
+        .attr("fill", "yellow");
 
-              svg
-                .append("text")
-                .attr("id", "tooltip")
-                .attr("class", "labels")
-                .attr("x", d[0])
-                .attr("y", d[1])
-                .attr("transform", "translate(0,20)")
-                .attr("text-anchor", "middle")
-                .attr("fill", "black")
-                .attr("background-color", "blue")
-                .html("Airport: " + d[2]);
-            })
+      svg
+        .append("rect")
+        .attr("id", "maptip")
+        .style("fill", "white")
+        .attr("width", 155)
+        .attr("height", 16)
+        .style("pointer-events", "none")
+        .attr("x", d[0])
+        .attr("y", d[1] - 13)
+        .attr("transform", "translate(0,20)");
+      svg
+        .append("text")
+        .attr("id", "tooltip")
+        .attr("class", "ttp1")
+        .attr("x", d[0])
+        .attr("y", d[1])
+        .attr("transform", "translate(0,20)")
+        .style("position", "absolute")
+        .style("font-size", "15px")
+        //.attr("text-anchor", "middle")
+        //.attr("fill", "black")
+        .style("color", "rgb(9, 23, 63)")
+        .html("Airport: " + d[2]);
+    })
             .on("mouseout", function () {
               d3.select("#tooltip").remove();
+              d3.select("#maptip").remove();
               d3.select(this)
                 .attr("r", 3)
                 .attr("fill", "brown")
