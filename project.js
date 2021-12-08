@@ -48,7 +48,6 @@ function draw_proportions(data) {
         .attr("height", function(d) {return y_scale(0) - y_scale(d)})
 }
 
-
 function draw_shruti_plot(data) {
   var test = d3.max(data, function (d) {
     return d.DEP_DELAY_NEW;
@@ -59,6 +58,7 @@ function draw_shruti_plot(data) {
     .select("body")
     .select("#graphs")
     .append("svg")
+    .attr("transform","translate( 0, -100)")
     .attr("width", 450)
     .attr("height", 500);
 
@@ -70,6 +70,9 @@ function draw_shruti_plot(data) {
   //console.log(dataset);
 
   var padding = 20;
+  //need to add this to adjust x and y margins independently -jack
+  var y_paddding = 10;
+
   var xScale = d3
     .scaleLinear()
     .domain([0, 8])
@@ -172,16 +175,16 @@ function draw_shruti_plot(data) {
 function draw_ali_plots(data) {
     // Ali's code
     var margin = {top: 70, right: 30, bottom: 110, left: 60},
-        width = 770 - margin.left - margin.right,
-        height = 400 - margin.top - margin.bottom;
+        width = 600 - margin.left - margin.right,
+        height = 300 - margin.top - margin.bottom;
 
     var svg = d3.select("#my_chart")
       .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
       .append("g")
-        .attr("transform",
-              "translate(" + margin.left + "," + margin.top + ")");
+        .attr("transform","translate(" + margin.left + "," + 0 + ")");
+        //.attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
     var airport = {};
     			//dataset = data;
@@ -252,8 +255,8 @@ function draw_ali_plots(data) {
          ///////////////////                            ////  AGES Pie Chart ////      ////////////////////////////////////
     var pieMargins = {}
     var ageschart = d3.select("#ages_chart").append("svg")
-        .attr("width", 800)
-        .attr("height", 800)
+        .attr("width", 400)
+        .attr("height", 400)
 
     for (const [key, {age}] of Object.entries(airport)) {
 
@@ -265,9 +268,9 @@ function draw_ali_plots(data) {
       airport [key].planesOver25 = total
     }
 
-    var radius = 200
+    var radius = 100
     var g = ageschart.append("g")
-    .style("transform", "translate(" + "50%" + "," + "50%" + ")")
+    .style("transform", "translate(" + "45%" + "," + "25%" + ")")
       //.attr("transform", "translate(" + width/1.5 + "," + height/1.25 + ")")
       var color = d3.scaleOrdinal(d3.schemeCategory10)
       // assign color d3.scaleOrdinal([#hex1, #hex2])
@@ -294,7 +297,7 @@ function draw_ali_plots(data) {
 
       arc.append("path")
         .attr("d", path)
-        .attr("height",300)
+        .attr("height",200)
         .attr("fill", function(d) {
           return color(d.value); })
           .attr("class", function(d,i) {
@@ -604,7 +607,8 @@ var vars3 = [];
 var airports = [];
 var projection = d3
   .geoAlbersUsa()
-  .translate([w / 2, h / 2])
+  //.translate([w / 2, h / 2])
+  .translate([w / 2, h / 3])
   .scale([900]);
 var path = d3.geoPath().projection(projection);
 

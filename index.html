@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USA</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles1.css">
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/topojson.v2.min.js"></script>
@@ -18,124 +18,98 @@
         </nav>
     </header>
     <h2>Visualization Project 2</h2><br>
-    <div class="row">
+   <div class="dashboard">
+        <div class="leftMap">
 
-        <!-- left column (two column layout borrow from https://www.w3schools.com/howto/howto_css_two_columns.asp) -->
-        <div class="column">
+            <div class="maps">
+                <h3> Airports in United States of America</h3>
 
-            <!-- Main Map -->
-            <div class="svgGroup">
-                <div class="maps">
-                    <h3> Airports in United States of America</h3>
+                <div id="maps"  >
+                <!-- <svg width="960" height="600"></svg>  -->
+                </div>
 
-                    <div id="maps"  >
-                    <!-- <svg width="960" height="600"></svg>  -->
-                    </div>
+            </div>
 
+        <div class="labelBox">
+
+                <h3> Filters</h3>
+                <!-- toggle delays only: drop-down format via https://www.w3schools.com/tags/tag_select.asp -->
                 <div>
+                    <select name="depblock" id="depblock">
+                        <option value="All">All</option>
+                        <option value="EARLY_MORNING">Early morning</option>
+                        <option value="MORNING">Morning</option>
+                        <option value="MIDDAY">Midday</option>
+                        <option value="AFTERNOON">Afternoon</option>
+                        <option value="EVENING">Evening</option>
+                        <option value="LATE_NIGHT">Late Night</option>
+                    </select>
+                    <label for="cars">Departure Block</label>
 
-                    <h3> Filters</h3>
-                    <!-- toggle delays only: drop-down format via https://www.w3schools.com/tags/tag_select.asp -->
-                    <div>
-                        <select name="depblock" id="depblock">
-                            <option value="All">All</option>
-                            <option value="EARLY_MORNING">Early morning</option>
-                            <option value="MORNING">Morning</option>
-                            <option value="MIDDAY">Midday</option>
-                            <option value="AFTERNOON">Afternoon</option>
-                            <option value="EVENING">Evening</option>
-                            <option value="LATE_NIGHT">Late Night</option>
-                        </select>
-                        <label for="cars">Departure Block</label>
-                    </div>
+                    <select name="dow" id="dow">
+                        <option value="0">All</option>
+                        <option value="1">Sunday</option>
+                        <option value="2">Monday</option>
+                        <option value="3">Tuesday</option>
+                        <option value="4">Wednesday</option>
+                        <option value="5">Thursday</option>
+                        <option value="6">Friday</option>
+                        <option value="7">Saturday</option>
+                    </select>
+                    <label for="dow">Day of week</label>
 
                     <!-- toggle delays only: checkbox format via https://www.w3schools.com/tags/att_input_type_checkbox.asp -->
-                    <div>
-                        <input type="checkbox" id="delayonly" name="delayonly" value="1">
-                        <label for="delayonly"> Show Delays Only </label>
-                    </div>
-
-                    <div>
-                        <select name="dow" id="dow">
-                            <option value="0">All</option>
-                            <option value="1">Sunday</option>
-                            <option value="2">Monday</option>
-                            <option value="3">Tuesday</option>
-                            <option value="4">Wednesday</option>
-                            <option value="5">Thursday</option>
-                            <option value="6">Friday</option>
-                            <option value="7">Saturday</option>
-                        </select>
-                        <label for="dow">Day of week</label>
-                    </div>
-
-                    <!-- search form -->
-                    <div>
-                        <!-- input part -->
-                        <div>
-                            <input type="text" id="textsearch" name="textsearch">
-                            <label for="textsearch">Departing Airline Search</label>
-                        </div>
-                        <!-- programmatically generated button section -->
-                        <div id="airports">
-
-                        </div>
-                    </div>
-
+                    <input type="checkbox" id="delayonly" name="delayonly" value="1">
+                    <label for="delayonly"> Show Delays Only </label>
                 </div>
 
+                <!-- search form -->
+                <div>
+                    <!-- input part -->
+                    <div>
+                        <input type="text" id="textsearch" name="textsearch">
+                        <label for="textsearch">Departing Airline Search</label>
+                    </div>
+                    <!-- programmatically generated button section -->
+                    <div id="airports">
+
+                    </div>
                 </div>
 
 
             </div>
-
-
 
         </div>
-
-        <!-- right column -->
-        <div class="column">
-
-
-            <!-- Ali Plots -->
-            <h3> Delays by Airline</h3>
-            <div id = "my_chart"></div>
-            <h3> Carriers with Planes over ages 25</h3>
-            <div id = "ages_chart"></div>
-
-            <!-- Jack plots -->
-            <div>
-                <h3>Delay Proportion by Airline </h3>
-                <svg id="cancel_prop" width="600" height="300">
-                    <g id = "cancel_props"></g>
-                    <g id = "cancel_x_axis" class = "axis_label"></g>
-                    <g id = "cancel_y_axis" class = "axis_label"></g>
-                </svg>
+        <div class="rightGraphs">
+            <div class="topGraphs">
+                <div class="subGraph1">
+                    <h3> Delays by Airline</h3>
+                    <div id = "my_chart"></div>
+                </div>
+                <div class="subGraph2">
+                    <h3> Carriers with Planes over ages 25</h3>
+                    <div id = "ages_chart"></div>
+                </div>
             </div>
-            <!--
-            <div>
-                <h3> Average Departure Delay by Airline </h3>
-                <svg id="delay" width="600" height="300">
-                    <g id = "delay_"></g>
-                    <g id = "delay_x_axis" class = "axis_label"></g>
-                    <g id = "delay_y_axis" class = "axis_label"></g>
-                </svg>
+            <div class="bottomGraphs">
+                <div class="subGraph3">
+                    <h3>Delay Proportion by Airline </h3>
+                    <svg id="cancel_prop" width="600" height="300">
+                        <g id = "cancel_props"></g>
+                        <g id = "cancel_x_axis" class = "axis_label"></g>
+                        <g id = "cancel_y_axis" class = "axis_label"></g>
+                    </svg>
+                </div>
+                <div class="subGraph4">
+                    <h3> Flights by day of week</h3>
+
+                    <div id="graphs" class = "graphs">
+                        <!-- <svg width="960" height="600"></svg>  -->
+                    </div>
+                </div>
             </div>
-            -->
-
-            <!-- Shruti's plots -->
-            <h3> Flights by day of week</h3>
-
-            <div id="graphs" class = "graphs">
-                <!-- <svg width="960" height="600"></svg>  -->
-            </div>
-
         </div>
     </div>
-
-
-
-
 
     <script src="project.js"></script>
 </body>

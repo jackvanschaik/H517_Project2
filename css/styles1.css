@@ -72,7 +72,7 @@ a {
 }
 
 .rightGraphs {
-  width: 750px;
+  width: 900px;
   height: 600px;
 
   background-color: crimson;
@@ -94,26 +94,26 @@ a {
 }
 
 .subGraph1 {
-  width: 50%;
+  width: 65%;
   border-style: solid;
   border-color: darkblue;
   /* border-radius: 10px; */
   /* border-style: inset; */
 }
 .subGraph2 {
-  width: 50%;
+  width: 35%;
   border-style: solid;
   border-color: darkblue;
   /* border-radius: 10px; */
 }
 .subGraph3 {
-  width: 50%;
+  width: 65%;
   border-style: solid;
   border-color: darkblue;
   /* border-radius: 10px; */
 }
 .subGraph4 {
-  width: 50%;
+  width: 35%;
   border-style: solid;
   border-color: darkblue;
   /* border-radius: 10px; */
