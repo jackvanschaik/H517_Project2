@@ -122,7 +122,7 @@ a {
 
 .states {
   /* fill: none; */
-  fill: rgb(49, 54, 149);
+  fill: #74add1;
   fill-opacity: 1;
 }
 .states :hover {
