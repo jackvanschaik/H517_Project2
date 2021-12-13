@@ -169,13 +169,11 @@ footer {
   justify-content: space-evenly;
   /* padding: 0 105px; */
   background-color: #313695;
-/*   color: #e0f3f8; */
 }
-.footnotes h3{
+.footnotes h2{
   color: #e0f3f8;
 }
 .footnotes {
   font-size: 14px;
   font-family: RobotoLight;
-/*   color: #e0f3f8; */
 }
