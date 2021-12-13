@@ -328,7 +328,7 @@ function draw_ali_plots(data) {
      .on("mouseover", function(d,i){
 
      d3.selectAll("." + d.data.name.replace(/\s+/g, '').replace('.', ''))
-         .attr("fill", "#fdae61")
+         .attr("fill", color(d.value))
        }).on("mouseout", function(d,i) {
         d3.select("rect." + d.data.name.replace(/\s+/g, '').replace('.', ''))
          .attr("fill", "#a50026")
