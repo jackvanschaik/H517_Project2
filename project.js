@@ -258,16 +258,16 @@ function draw_ali_plots(data) {
         .attr("y", function(d) { return y(airport[d]["delay_values"]); })
         .attr("width", x.bandwidth())
         .attr("height", function(d) { return height - y(airport[d]["delay_values"]); })
-        .attr("fill", "black")
+        .attr("fill", "#a50026")
         .attr("class", function(d,i) { return d.replace(/\s+/g, '').replace('.', ''); })
         .on("mouseover", function(d,i){
 
 
           d3.selectAll("." + d.replace(/\s+/g, '').replace('.', ''))
-          .attr("fill", "yellow")
+          .attr("fill", "#ffffbf")
         }).on("mouseout", function(d,i) {
           d3.select("rect." + d.replace(/\s+/g, '').replace('.', ''))
-         .attr("fill", "black")
+         .attr("fill", "#a50026")
          d3.select("path." + d.replace(/\s+/g, '').replace('.', ''))
          .attr("fill", color(airport[d].planesOver25))
         });
@@ -277,8 +277,8 @@ function draw_ali_plots(data) {
          ///////////////////                            ////  AGES Pie Chart ////      ////////////////////////////////////
     var pieMargins = {}
     var ageschart = d3.select("#ages_chart").append("svg")
-        .attr("width", 400)
-        .attr("height", 400)
+        .attr("width", 350)
+        .attr("height", 350)
 
     for (const [key, {age}] of Object.entries(airport)) {
 
@@ -290,7 +290,7 @@ function draw_ali_plots(data) {
       airport [key].planesOver25 = total
     }
 
-    var radius = 100
+    var radius = 80
     var g = ageschart.append("g")
     .style("transform", "translate(" + "45%" + "," + "25%" + ")")
       //.attr("transform", "translate(" + width/1.5 + "," + height/1.25 + ")")
