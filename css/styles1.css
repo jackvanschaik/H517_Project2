@@ -122,7 +122,7 @@ a {
 
 .states {
   /* fill: none; */
-  fill: #74add1;
+  fill: #abd9e9;
   fill-opacity: 1;
 }
 .states :hover {
@@ -131,7 +131,7 @@ a {
 
 .state-borders {
   fill: none;
-  stroke: #abd9e9;
+  stroke: #313695;
   stroke-width: 0.5px;
   stroke-linejoin: round;
   stroke-linecap: round;
