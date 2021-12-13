@@ -59,8 +59,8 @@ function draw_shruti_plot(data) {
     .select("#graphs")
     .append("svg")
     .attr("transform","translate( 0, -100)")
-    .attr("width", 450)
-    .attr("height", 500);
+    .attr("width", 350)
+    .attr("height", 350);
 
   //console.log(data);
   var dataset = data.map(function (d) {
@@ -635,7 +635,7 @@ function load_data(step = 1) {
 
 /*** Kick-off the script ***/
 // Global variables
-var w = 750;
+var w = 600;
 var h = 600;
 var newdataset = [];
 var vars3 = [];
@@ -644,7 +644,7 @@ var projection = d3
   .geoAlbersUsa()
   //.translate([w / 2, h / 2])
   .translate([w / 2, h / 3])
-  .scale([900]);
+  .scale([700]);
 var path = d3.geoPath().projection(projection);
 
 // main function
