@@ -105,8 +105,8 @@ function draw_shruti_plot(data) {
     //.attr("fill", function (d, i) {
     //  return scaledColors(i);
     //})
-    .attr("fill", "#33a02c")
-    .style("stroke", "#b2df8a")
+    .attr("fill", "#d73027")
+    .style("stroke", "#fee090")
     .style("stroke-width", "0.4")
     .attr("transform", "translate(" + padding + "," + padding * 13 + ")")
     .on("mouseover", function (d, i) {
