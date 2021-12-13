@@ -443,7 +443,7 @@ function draw_map(data) {
               d3.select(this)
                 .attr("r", 3)
                 .attr("fill", "#a50026")
-                .style("opacity", 0.3);
+                .style("opacity", 0.5);
             })
             .on("click", function(d) {
                 window['airport'] = d[2];
