@@ -328,10 +328,10 @@ function draw_ali_plots(data) {
      .on("mouseover", function(d,i){
 
      d3.selectAll("." + d.data.name.replace(/\s+/g, '').replace('.', ''))
-         .attr("fill", "yellow")
+         .attr("fill", "#fdae61")
        }).on("mouseout", function(d,i) {
         d3.select("rect." + d.data.name.replace(/\s+/g, '').replace('.', ''))
-         .attr("fill", "black")
+         .attr("fill", "#a50026")
          d3.select("path." + d.data.name.replace(/\s+/g, '').replace('.', ''))
          .attr("fill", color(d.value))
         });
