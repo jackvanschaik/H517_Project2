@@ -403,7 +403,7 @@ function draw_map(data) {
               return d[1];
             })
             .attr("r", 3)
-            .attr("fill", "brown")
+            .attr("fill", "#a50026")
             .style("opacity", 0.3)
 
             .on("mouseover", function (d, i) {
@@ -411,7 +411,7 @@ function draw_map(data) {
         .transition()
         .duration(300)
         .attr("r", 10)
-        .attr("fill", "yellow");
+        .attr("fill", "#fee090");
 
       svg
         .append("rect")
@@ -442,7 +442,7 @@ function draw_map(data) {
               d3.select("#maptip").remove();
               d3.select(this)
                 .attr("r", 3)
-                .attr("fill", "brown")
+                .attr("fill", "#a50026")
                 .style("opacity", 0.3);
             })
             .on("click", function(d) {
