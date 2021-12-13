@@ -168,6 +168,7 @@ footer {
   align-items: center;
   justify-content: space-evenly;
   /* padding: 0 105px; */
+  background-color: #313695;
 }
 
 .footnotes {
