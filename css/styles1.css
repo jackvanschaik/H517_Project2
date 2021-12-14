@@ -71,8 +71,11 @@ a {
 .labelBox {
   width: 100%;
   height: 120px;
-  background-color: rgb(69, 117, 180);
+/*   background-color: rgb(69, 117, 180); */
   margin-top: -100px;
+  border-style: solid;
+  border-color: darkblue;
+  border-radius:20px;
 }
 
 .rightGraphs {
