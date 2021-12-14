@@ -19,10 +19,54 @@
         </nav>
     </header>
     <h2>Visualization Project 2</h2>
-    <div class="des-doc">
-        <!-- style="background-color: aqua;" -->
-        
-        
+    <div class="descpage">
+        <div class="des-doc">
+            <!-- style="background-color: aqua;" -->
+            <h3>Problem Statement</h3>
+            <p>Most people have to travel by air and plan flights. Planning a trip that arrives on time can be a difficult and stressful process. Online travel planning services allow you to find flights at a certain time, but often present an overwhelming number of options. They lack historical context that shows which flights are more reliable, which can make it difficult to make the right choice. </p>
+            <p>We introduce an interactive dashboard for visualizing historical departure delay data. Using our dashboard, users will be able to determine which flights, airlines, and conditions are prone to delays. With this information, users can improve upon their travel plans.</p>
+            <br>
+            <h3>Data Description</h3>
+            <p>To power our dashboard, we will be using the “On-Time” (https://www.transtats.bts.gov/ONTIME/ ). data from the Bureau of Transportation Statistics. The Bureau of Transportation Statistics has collected data on every domestic flight in the US for several years. This data includes many variables about the flights such as times, airline, locations, weather, and many others. Our main outcome of interest will be departure delay. The 2019 data alone is very large, so we have taken a representative sample for computational expediency.</p>
+            <p>We will use a curated dataset of just 2019 data taken from Kaggle (https://www.kaggle.com/threnjen/2019-airline-delays-and-cancellations) . </p>
+            <br>
+            <h3>Page Layout</h3>
+            <p>Initially, the page was laid out in a webpage format with the US map fixed in location on the left side and each graph was in a separate section on the right side. After further analysis, we have decided to go ahead with a Dashboard layout where all the graphs are visible at the same tme so that all the linked D3 effects can be viewed without having to scroll.</p>
+            <p>Some of the layout ideas discussed are shown below.</p>
+            <div class="image-container ">                
+                <div class="img1"></div>
+                <div class="img2"></div>
+                <div class="img3"></div>
+            </div>
+            <h2>Visualizations:</h2>
+            <h3>Map of USA</h3>
+            <p>This map has the states outlined with locations of the airports under consideration plotted as red dots. Each airport is linked to the graphs showing flight delay information. On hovering over the dots, we can see the name of the corresponding airport inside a tooltip and the plot point increases in size. When clicked on that airport, the respective data is plotted on the bar graphs and the piechart such as the delay % and age of planes. The map is scaled down to fit within the dashboard.</p>
+            <h3>UI: Filters and Drop-down Menus</h3>
+            <p>The “Filters” region of the visualization allows users to focus on subset of the data that are more relevant to their particular travel plan. The “Departure Block” filter allows users to select particular departing times of day, which may be useful when working with a restrictive travel schedule. Here, it makes sense to use a dropdown box, since the options are discrete. Similarly, users can filter to a particular travel day using the “Day of Week” dropdown. We also have a checkbox that allows users to filter to delays only, which affect the top two plots. Using a radio button makes sense here because it is binary. Finally, the most important filter is the departing airport filter, since most users will already have an idea of which airport or airports they will be flying out of. To this end, we provide the user with two approaches to filtering. Within the filter UI, the user can do a free text search in the “Departing Airline Search” box. This will create a regular expression that matches searches through a list of airports present in the data, and then creates buttons by which the user can filter to an individual airport. While this is a discrete field, there are well over one hundred options so we felt that a dropdown would be inappropriate. The user can reset the filter by erasing the contexts of the search box. Additionally, the user can filter the data to a particular departing airport by simply clicking that airport button on the map.The user is made aware of this by an accompanying update to the filter interface. This feature is useful in the travel planning sense because it can allow users to find alternative locations based on geography, and can be helpful if the name of an airport is unknown.</p>
+            <h3>Bar Graph 1: Delays by Airline</h3>
+            <p></p>
+            <h3>Pie Chart: Carriers with Planes of age 25 years or more</h3>
+            <p></p>
+            <h3>Bar Graph 2: Delay Proportion by Airline</h3>
+            <p>This plot, located in the bottom left quadrant shows delay proportion by airline. In particular, it shows the percentages of outgoing flights for each airline that experience a delay greater than 0 minutes. The data shown on this plot is subject to the same UI filters as the “Delays by Airline” and “Carrier with Planes over ages 25” plot, allowing the user to investigate which airlines have relatively higher delays under their particular criteria of interest. The vertical axis always starts at 0 and ends at the max delay proportion. We made this choice, as opposed to a 0-to-1 vertical axis, so that data subsets with lower overall delay proportions would still show up. The horizontal axis corresponds to different airlines, is discrete/ qualitative, and has no inherent ordering. It represents the same airlines as the “Delays by Airline” plot. We did not color by airline here, because that would require too many colors for a discrete color palette, and it does not add much information to the plot since airlines are alphabetized and can be found that way. Furthermore, we chose to use black coloring for the plot because it has good contrast with pretty much all lighter background colors.</p>
+            <h3>Scatter Plot: Flights by Day of the Week</h3>
+            <p>The scatterplot used date and delay duration variables. Before we plotted the graphs in D3, we analyzed the data in R and observed trends with respect to months, days and weekdays. Months and days data has not shown any pattern in terms of delays but a noticable trend was observed in days of the week.</p>
+            <p>The middle of the week observed more delays but the corner points had the longest durations of delays observed. Delay in minutes with respect to the day of the week was seen under a bell curve.</p>
+            <p>The actual value of the delay in minutes is shown in a tooltip and size of the plot point changes when the mouse is hovered over each dot using D3 functionalities.</p>
+            <div class="image-container ">                
+                <div class="img5"></div>
+                <div class="img6"></div>
+                <div class="img7"></div>
+            </div>
+            <br>
+            <h3>Accessibility</h3>
+            <p>The color scheme is color-blind safe. The color scheme for this project has been exported from the ColorBrewer application which has given us a set of 11 diverging colors. The colors are available at https://colorbrewer2.org/#type=diverging&scheme=RdYlBu&n=11. </p>
+            <p>The backgrounds and base map was drawn using the cool blue shades of the spectrum and the plot points and bars used brighter colors for popping out effect and clarity.</p>
+            <p>The color scheme that was originally picked (used in the class presentation) was a built-in color scheme in D3. The palette consisted of 10 colors that D3 deemed appropriate for the presentation which was mainly used for developing convenience. The palettes were called by d3.schemeCategory10 and d3.schemeCategory20. The decision to change the colors allowed us to be more accessibility friendly. Individuals who are color blind or experience color vision deficiency may have a hard time seeing the initial colors that were chosen. Therefore, to accommodate individuals with disabilities the new color schemes were implemented.</p>
+            <div class="img4"></div>
+            <h3>Future Scope</h3>
+            <p>More variables are available in this dataset which can be further studied and analyzed.</p>
+        </div>
     </div>
     <footer>
         <div class="footnotes">
