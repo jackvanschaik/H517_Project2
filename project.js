@@ -66,7 +66,7 @@ function draw_shruti_plot(data) {
     .select("#graphs")
     .append("svg")
     .attr("transform","translate( 0, -100)")
-    .attr("width", 350)
+    .attr("width", 300)
     .attr("height", 350);
 
   //console.log(data);
