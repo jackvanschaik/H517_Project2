@@ -38,15 +38,21 @@ function draw_proportions(data) {
 
     // draw elements on svg
     d3.select("#cancel_props")
-        .selectAll("rect")
-        .data(c_props)
-        .enter()
-        .append("rect")
-        .attr("x", function(d, i) {return x_scale(carrier[i])})
-        .attr("y", function(d) {return y_scale(d)})
-        .attr("fill", "#d73027")
-        .attr("width", x_scale.bandwidth())
-        .attr("height", function(d) {return y_scale(0) - y_scale(d)})
+    .selectAll("rect")
+    .data(c_props)
+    .enter()
+    .append("rect")
+    .attr("x", function (d, i) {
+      return x_scale(carrier[i]);
+    })
+    .attr("y", function (d) {
+      return y_scale(d);
+    })
+    .attr("fill", "#d73027")
+    .attr("width", x_scale.bandwidth())
+    .attr("height", function (d) {
+      return y_scale(0) - y_scale(d);
+    });
 }
 
 function draw_shruti_plot(data) {
