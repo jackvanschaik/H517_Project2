@@ -294,7 +294,19 @@ function draw_ali_plots(data) {
     var g = ageschart.append("g")
     .style("transform", "translate(" + "45%" + "," + "25%" + ")")
       //.attr("transform", "translate(" + width/1.5 + "," + height/1.25 + ")")
-      var color = d3.scaleOrdinal(d3.schemeCategory10)
+//       var color = d3.scaleOrdinal(d3.schemeCategory10)
+    var color = d3.scaleOrdinal([
+    "#d73027",
+    "#f46d43",
+    "#fdae61",
+    "#fee090",
+    "#ffffbf",
+    "#e0f3f8",
+    "#abd9e9",
+    "#74add1",
+    "#4575b4",
+    "#313695",
+  ]);
       // assign color d3.scaleOrdinal([#hex1, #hex2])
     // console.log(airport)
       var pie = d3.pie().value(d => {
