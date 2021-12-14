@@ -159,7 +159,14 @@ a {
   pointer-events: none;
   color: rgb(9, 23, 63);
 }
-
+.vid {
+  display: flex;
+  justify-content: space-around;
+}
+.hd {
+  display: flex;
+  justify-content: space-around;
+}
 
 footer {
   /* margin-top: 50px; */
