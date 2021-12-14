@@ -586,7 +586,7 @@ function visualize() {
     // clear any previously drawn elements
     ["#cancel_props", "#cancel_x_axis", "#cancel_y_axis",
     "#delay_", "#delay_x_axis", "#delay_y_axis", "#my_chart",
-    "#ages_chart", "maps", "graphs"]
+    "#ages_chart", "maps", "#graphs"]
         .map(function(x){ d3.select(x).selectAll("*").remove()});
 
     // update plots
