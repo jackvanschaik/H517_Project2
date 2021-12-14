@@ -44,6 +44,7 @@ function draw_proportions(data) {
         .append("rect")
         .attr("x", function(d, i) {return x_scale(carrier[i])})
         .attr("y", function(d) {return y_scale(d)})
+        .attr("fill", "#d73027")
         .attr("width", x_scale.bandwidth())
         .attr("height", function(d) {return y_scale(0) - y_scale(d)})
 }
