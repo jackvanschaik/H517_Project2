@@ -6,7 +6,7 @@
 html,
 body {
   height: 100%;
-/*   background-color: rgb(255, 248, 248); */
+  /*   background-color: rgb(255, 248, 248); */
 }
 h1,
 h2,
@@ -23,7 +23,7 @@ h2 {
   margin-top: 10px;
   color: #3288bd;
 }
-h3{
+h3 {
   color: #3288bd;
 }
 header {
@@ -49,11 +49,11 @@ a {
   width: 100%;
   display: flex;
   justify-content: space-around;
-/*   background-color: aquamarine; */
+  /*   background-color: aquamarine; */
 }
 
 .leftMap {
-/*   background-color: blueviolet; */
+  /*   background-color: blueviolet; */
   width: 600px;
   height: 600px;
   display: flex;
@@ -70,19 +70,19 @@ a {
 
 .labelBox {
   width: 100%;
-  height: 120px;
-/*   background-color: rgb(69, 117, 180); */
-  margin-top: -100px;
+  height: 160px;
+  /*   background-color: rgb(69, 117, 180); */
+  margin-top: -160px;
   border-style: solid;
-  border-color: darkblue;
-  border-radius:20px;
+  border-color: #4575b4;
+  border-radius: 20px;
 }
 
 .rightGraphs {
   width: 900px;
   height: 600px;
 
-/*   background-color: crimson; */
+  /*   background-color: crimson; */
 }
 
 .topGraphs {
@@ -90,40 +90,41 @@ a {
   height: 300px;
   display: flex;
   justify-content: space-evenly;
-/*   background-color: cadetblue; */
+  /*   background-color: cadetblue; */
 }
 .bottomGraphs {
   width: 100%;
   height: 300px;
   display: flex;
   justify-content: space-evenly;
-/*   background-color: cornflowerblue; */
+  /*   background-color: cornflowerblue; */
 }
 
 .subGraph1 {
-  width: 65%;
+  width: 64%;
   border-style: solid;
-  border-color: darkblue;
+  border-color: #4575b4;
+  border-radius: 20px;
   /* border-radius: 10px; */
   /* border-style: inset; */
 }
 .subGraph2 {
   width: 35%;
   border-style: solid;
-  border-color: darkblue;
-  /* border-radius: 10px; */
+  border-color: #4575b4;
+  border-radius: 20px;
 }
 .subGraph3 {
-  width: 65%;
+  width: 64%;
   border-style: solid;
-  border-color: darkblue;
-  /* border-radius: 10px; */
+  border-color: #4575b4;
+  border-radius: 20px;
 }
 .subGraph4 {
   width: 35%;
   border-style: solid;
-  border-color: darkblue;
-  /* border-radius: 10px; */
+  border-color: #4575b4;
+  border-radius: 20px;
 }
 
 .states {
@@ -180,7 +181,7 @@ footer {
   /* padding: 0 105px; */
   background-color: #313695;
 }
-.footnotes h2{
+.footnotes h2 {
   color: #e0f3f8;
 }
 .footnotes {
