@@ -331,7 +331,7 @@ function draw_ali_plots(data) {
 
       arc.append("path")
         .attr("d", path)
-        .attr("height",200)
+        .attr("height",100)
         .attr("fill", function(d) {
           return color(d.value); })
           .attr("class", function(d,i) {
