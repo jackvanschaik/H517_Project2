@@ -284,8 +284,8 @@ function draw_ali_plots(data) {
          ///////////////////                            ////  AGES Pie Chart ////      ////////////////////////////////////
     var pieMargins = {}
     var ageschart = d3.select("#ages_chart").append("svg")
-        .attr("width", 350)
-        .attr("height", 450)
+        .attr("width", 300)
+        .attr("height", 400)
 
     for (const [key, {age}] of Object.entries(airport)) {
 
