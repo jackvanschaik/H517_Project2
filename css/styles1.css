@@ -192,3 +192,64 @@ footer {
   font-size: 14px;
   font-family: RobotoLight;
 }
+.descpage {
+  display: flex;
+  justify-content: center;
+}
+.des-doc {
+  width: 80%;
+}
+.image-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.img1 {
+  width: 350px;
+  height: 250px;
+  background-image: url(../images/layout1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.img2 {
+  width: 250px;
+  height: 350px;
+  background-image: url(../images/layout2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.img3 {
+  width: 350px;
+  height: 250px;
+  background-image: url(../images/layout3.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.img4 {
+  width: 350px;
+  height: 250px;
+  background-image: url(../images/color.JPG);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.img5 {
+  width: 350px;
+  height: 250px;
+  background-image: url(../images/delaysbyweekdays.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.img6 {
+  width: 350px;
+  height: 250px;
+  background-image: url(../images/delaysbymonth.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.img7 {
+  width: 350px;
+  height: 250px;
+  background-image: url(../images/delaysbydays.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
